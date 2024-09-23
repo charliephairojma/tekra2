@@ -1,10 +1,14 @@
 import sys
-from stock_analysis.crew import StockAnalysisCrew
+from stock_analysis.crew2 import StockAnalysisCrew
 
 def run():
     inputs = {
         'query': 'What is the best running shoe for beginner',
         'company_stock': 'AMZN',
+        'recipient': 'charlie.phairoj@gmail.com',
+        'subject': 'Report for AMZN',
+        'body': 'Please find the report for AMZN',
+        # 'attachment_path': 'report.pdf',
     }
     StockAnalysisCrew().crew().kickoff(inputs=inputs)
 

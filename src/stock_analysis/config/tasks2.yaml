@@ -70,7 +70,7 @@ html_report_generation:
     1. Have a clear, visually appealing structure with a table of contents.
     2. Incorporate all data visualizations and charts.
     3. Present information in a logical, easy-to-follow manner.
-    4. Include interactive elements if possible (e.g., expandable sections, tooltips).
+    4. Should be completely static and not use any javascript libraries or even javascript at all.
   expected_output: >
     A polished, well-formatted HTML report that effectively communicates all aspects of the stock analysis.
     The report should be suitable for both quick overview and in-depth reading.

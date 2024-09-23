@@ -49,3 +49,24 @@ recommend:
     Your final answer MUST be a recommendation for your customer. It should be a full super detailed report, providing a 
     clear investment stance and strategy with supporting evidence.
     Make it pretty and well formatted for your customer.
+
+data_visualization:
+  description: >
+    Create clear and informative visualizations to illustrate key financial and market data for {company_stock}. This includes:
+    1. Charts showing historical price and volume data.
+    2. Graphs comparing key financial metrics over time and against competitors.
+    3. Visual representations of market share, revenue breakdown, or other relevant data.
+  expected_output: >
+    A set of high-quality, easy-to-understand charts and graphs that effectively communicate
+    the most important data points and trends identified in the analysis.
+
+html_report_generation:
+  description: >
+    Create a professional, comprehensive HTML report that consolidates all the analyses and recommendations for {company_stock}. The report should:
+    1. Have a clear, visually appealing structure with a table of contents.
+    2. Incorporate all data visualizations and charts.
+    3. Present information in a logical, easy-to-follow manner.
+    4. Should be completely static and not use any javascript libraries or even javascript at all.
+  expected_output: >
+    A polished, well-formatted HTML report that effectively communicates all aspects of the stock analysis.
+    The report should be suitable for both quick overview and in-depth reading.

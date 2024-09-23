@@ -5,6 +5,7 @@ from langchain.llms import Ollama
 from stock_analysis.tools.calculator_tool import CalculatorTool
 from stock_analysis.tools.sec_tools import SEC10KTool, SEC10QTool
 from stock_analysis.tools.pdf_tool import PDFTool
+from stock_analysis.tools.email_tool import EmailTool
 from crewai_tools import WebsiteSearchTool, ScrapeWebsiteTool, TXTSearchTool
 
 
@@ -13,8 +14,8 @@ ollama_llama3_1 = Ollama(model="llama3.1")
 
 @CrewBase
 class StockAnalysisCrew:
-    agents_config = 'config/agents2.yaml'
-    tasks_config = 'config/tasks2.yaml'
+    agents_config = 'config/agents.yaml'
+    tasks_config = 'config/tasks.yaml'
     
     @agent
     def financial_agent(self) -> Agent:
@@ -25,8 +26,8 @@ class StockAnalysisCrew:
                 ScrapeWebsiteTool(),
                 WebsiteSearchTool(),
                 CalculatorTool(),
-                SEC10QTool("AMZN"),
-                SEC10KTool("AMZN"),
+                # SEC10QTool("AMZN"),
+                # SEC10KTool("AMZN"),
             ],
             llm=ollama_llama3_1
         )
@@ -47,8 +48,8 @@ class StockAnalysisCrew:
             tools=[
                 ScrapeWebsiteTool(),
                 # WebsiteSearchTool(), 
-                SEC10QTool("AMZN"),
-                SEC10KTool("AMZN"),
+                # SEC10QTool("AMZN"),
+                # SEC10KTool("AMZN"),
             ],
             llm=ollama_llama3_1
         )
@@ -69,8 +70,8 @@ class StockAnalysisCrew:
                 ScrapeWebsiteTool(),
                 WebsiteSearchTool(),
                 CalculatorTool(),
-                SEC10QTool(),
-                SEC10KTool(),
+                # SEC10QTool(),
+                # SEC10KTool(),
             ],
             llm=ollama_llama3_1
         )
@@ -108,7 +109,43 @@ class StockAnalysisCrew:
             config=self.tasks_config['recommend'],
             agent=self.investment_advisor_agent(),
         )
-    
+
+    @agent
+    def data_visualizer_agent(self) -> Agent:
+        return Agent(
+            config=self.agents_config['data_visualizer'],
+            verbose=True,
+            tools=[
+                CalculatorTool(),
+            ],
+            llm=ollama_llama3_1
+        )
+
+    @task
+    def data_visualization(self) -> Task:
+        return Task(
+            config=self.tasks_config['data_visualization'],
+            agent=self.data_visualizer_agent(),
+        )
+
+    @agent
+    def web_developer_agent(self) -> Agent:
+        return Agent(
+            config=self.agents_config['web_developer'],
+            verbose=True,
+            tools=[
+                # EmailTool(),
+                PDFTool(),
+            ],
+            llm=ollama_llama3_1
+        )
+
+    @task
+    def html_report_generation(self) -> Task:
+        return Task(
+            config=self.tasks_config['html_report_generation'],
+            agent=self.web_developer_agent(),
+        )
     
     @crew
     def crew(self) -> Crew:
