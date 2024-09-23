@@ -1,16 +1,20 @@
 from typing import List
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-
-from .tools.calculator_tool import CalculatorTool
-from .tools.sec_tools import SEC10KTool, SEC10QTool
-
+from langchain.llms import Ollama
+from stock_analysis.tools.calculator_tool import CalculatorTool
+from stock_analysis.tools.sec_tools import SEC10KTool, SEC10QTool
+from stock_analysis.tools.pdf_tool import PDFTool
 from crewai_tools import WebsiteSearchTool, ScrapeWebsiteTool, TXTSearchTool
+
+
+ollama_llama3_1 = Ollama(model="llama3.1")
+
 
 @CrewBase
 class StockAnalysisCrew:
-    agents_config = 'config/agents.yaml'
-    tasks_config = 'config/tasks.yaml'
+    agents_config = 'config/agents2.yaml'
+    tasks_config = 'config/tasks2.yaml'
     
     @agent
     def financial_agent(self) -> Agent:
@@ -23,7 +27,8 @@ class StockAnalysisCrew:
                 CalculatorTool(),
                 SEC10QTool("AMZN"),
                 SEC10KTool("AMZN"),
-            ]
+            ],
+            llm=ollama_llama3_1
         )
     
     @task
@@ -44,7 +49,8 @@ class StockAnalysisCrew:
                 # WebsiteSearchTool(), 
                 SEC10QTool("AMZN"),
                 SEC10KTool("AMZN"),
-            ]
+            ],
+            llm=ollama_llama3_1
         )
     
     @task
@@ -65,7 +71,8 @@ class StockAnalysisCrew:
                 CalculatorTool(),
                 SEC10QTool(),
                 SEC10KTool(),
-            ]
+            ],
+            llm=ollama_llama3_1
         )
     
     @task
@@ -91,7 +98,8 @@ class StockAnalysisCrew:
                 ScrapeWebsiteTool(),
                 WebsiteSearchTool(),
                 CalculatorTool(),
-            ]
+            ],
+            llm=ollama_llama3_1
         )
 
     @task

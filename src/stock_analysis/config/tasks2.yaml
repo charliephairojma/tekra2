@@ -1,0 +1,76 @@
+market_research:
+  description: >
+    Conduct comprehensive market research for {company_stock}. This includes:
+    1. Analyzing recent news articles, press releases, and market analyses.
+    2. Identifying market trends, competitor activities, and industry challenges.
+    3. Examining analyst reports and expert opinions.
+    4. Investigating upcoming events like earnings calls or product launches.
+  expected_output: >
+    A detailed report covering market sentiment, industry position, competitive landscape,
+    and potential catalysts for stock movement. Include relevant statistics and expert opinions.
+
+financial_analysis:
+  description: >
+    Perform a thorough financial analysis of {company_stock}. This includes:
+    1. Examining key financial metrics (P/E ratio, EPS growth, revenue trends, debt-to-equity ratio, etc.).
+    2. Analyzing cash flow statements, balance sheets, and income statements.
+    3. Calculating and interpreting financial ratios.
+    4. Comparing performance against industry benchmarks and historical data.
+  expected_output: >
+    A comprehensive financial health assessment, including trend analysis, ratio interpretations,
+    and comparisons to industry standards. Highlight strengths, weaknesses, and areas of concern.
+
+sec_filings_analysis:
+  description: >
+    Analyze the latest SEC filings (10-K, 10-Q, 8-K) for {company_stock}. Focus on:
+    1. Management's Discussion and Analysis (MD&A) section.
+    2. Risk factors and legal proceedings.
+    3. Insider trading activity and executive compensation.
+    4. Changes in accounting policies or business strategies.
+  expected_output: >
+    A detailed summary of key findings from SEC filings, highlighting significant changes,
+    potential risks, and important disclosures that could impact investment decisions.
+
+technical_analysis:
+  description: >
+    Conduct a technical analysis of {company_stock}'s price action. Include:
+    1. Identifying key support and resistance levels.
+    2. Analyzing moving averages and other relevant technical indicators.
+    3. Examining trading volume patterns.
+    4. Identifying any significant chart patterns or formations.
+  expected_output: >
+    A technical analysis report with charts, highlighting key levels, patterns, and indicators.
+    Provide insights on potential short-term price movements based on technical factors.
+
+data_visualization:
+  description: >
+    Create clear and informative visualizations to illustrate key financial and market data for {company_stock}. This includes:
+    1. Charts showing historical price and volume data.
+    2. Graphs comparing key financial metrics over time and against competitors.
+    3. Visual representations of market share, revenue breakdown, or other relevant data.
+  expected_output: >
+    A set of high-quality, easy-to-understand charts and graphs that effectively communicate
+    the most important data points and trends identified in the analysis.
+
+investment_recommendation:
+  description: >
+    Synthesize all the gathered information to formulate a comprehensive investment recommendation for {company_stock}. Consider:
+    1. Fundamental analysis results.
+    2. Technical analysis insights.
+    3. Market trends and industry position.
+    4. Potential risks and catalysts.
+  expected_output: >
+    A well-reasoned investment recommendation, clearly stating whether to buy, hold, or sell the stock.
+    Include a summary of key factors influencing the decision, potential upsides and downsides,
+    and any relevant caveats or conditions for the recommendation.
+
+html_report_generation:
+  description: >
+    Create a professional, comprehensive HTML report that consolidates all the analyses and recommendations for {company_stock}. The report should:
+    1. Have a clear, visually appealing structure with a table of contents.
+    2. Incorporate all data visualizations and charts.
+    3. Present information in a logical, easy-to-follow manner.
+    4. Include interactive elements if possible (e.g., expandable sections, tooltips).
+  expected_output: >
+    A polished, well-formatted HTML report that effectively communicates all aspects of the stock analysis.
+    The report should be suitable for both quick overview and in-depth reading.

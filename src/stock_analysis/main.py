@@ -1,5 +1,5 @@
 import sys
-from .crew import StockAnalysisCrew
+from stock_analysis.crew import StockAnalysisCrew
 
 def run():
     inputs = {
