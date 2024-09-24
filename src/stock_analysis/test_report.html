@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDD Stock Analysis Report</title>
+    <link rel="stylesheet" href="styles.css">
+	<style>
+
+.toc {
+    margin-top: 20px;
+}
+
+.toc ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toc a {
+    text-decoration: none;
+    color: #333;
+}
+
+.chart, .graph {
+    width: 500px;
+    height: 300px;
+    border: 1px solid #ccc;
+}
+
+.expandable-section {
+    margin-top: 20px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-content {
+    visibility: hidden;
+    width: 200px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    border-radius: 6px;
+
+    padding: 8px;
+}
+
+.tooltip:hover .tooltip-content {
+    visibility: visible;
+}
+
+	</style>
+</head>
+<body>
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#financial-metrics">Financial Metrics</a></li>
+            <li><a href="#market-analysis">Market Analysis</a></li>
+            <li><a href="#visual-data">Visual Data</a></li>
+            <li><a href="#recommendations">Recommendations</a></li>
+        </ul>
+    </div>
+
+    <!-- Financial Metrics -->
+    <h1 id="financial-metrics">Financial Metrics</h1>
+    <p>The following financial metrics provide an overview of PDD's performance.</p>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Revenue (USD)</th>
+            <th>Net Income (USD)</th>
+            <th>EPS (USD)</th>
+        </tr>
+        <!-- Insert data from EDGAR filings -->
+        <tr>
+            <td>2022</td>
+            <td>$10.5B</td>
+            <td>$1.8B</td>
+            <td>$0.50</td>
+        </tr>
+        <!-- ... -->
+    </table>
+
+    <!-- Market Analysis -->
+    <h1 id="market-analysis">Market Analysis</h1>
+    <p>The following market analysis provides context for PDD's performance.</p>
+    <div class="chart">
+        <svg width="500" height="300">
+            <!-- Insert chart showing historical price and volume data over time -->
+        </svg>
+    </div>
+
+    <!-- Visual Data -->
+    <h1 id="visual-data">Visual Data</h1>
+    <p>The following visualizations provide a deeper understanding of PDD's performance.</p>
+    <div class="graph">
+        <svg width="500" height="300">
+            <!-- Insert graph comparing key financial metrics of PDD over time and against its competitors -->
+        </svg>
+    </div>
+
+    <!-- Recommendations -->
+    <h1 id="recommendations">Recommendations</h1>
+    <p>Based on the analysis, we recommend:</p>
+    <ul>
+        <li>Purchasing shares in the short-term for potential long-term growth.</li>
+        <li>Maintaining a diversified portfolio to mitigate risks.</li>
+        <!-- ... -->
+    </ul>
+
+    <!-- Expandable Sections and Tooltips -->
+    <div class="expandable-section">
+        <button>Expand</button>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </div>
+
+    <span class="tooltip">Hover over me!</span>
+
+    <!-- Interactive Elements -->
+    <!-- <script src="script.js"></script> -->
+
+	<script>
+		const buttons = document.querySelectorAll('.expandable-section button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const section = button.parentNode;
+        section.classList.toggle('expanded');
+    });
+});
+
+const tooltips = document.querySelectorAll('.tooltip');
+tooltips.forEach(tooltip => {
+    tooltip.addEventListener('mouseover', () => {
+        const content = tooltip.children[0];
+        content.style.visibility = 'visible';
+    });
+
+    tooltip.addEventListener('mouseout', () => {
+        const content = tooltip.children[0];
+        content.style.visibility = 'hidden';
+    });
+});
+	</script>
+</body>
+</html>

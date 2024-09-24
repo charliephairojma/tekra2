@@ -1,13 +1,19 @@
 import sys
-from stock_analysis.crew2 import StockAnalysisCrew
+from stock_analysis.crew import StockAnalysisCrew
+import dotenv
+
+
+# Load environment variables from .env file
+dotenv.load_dotenv()
+
 
 def run():
     inputs = {
         'query': 'What is the best running shoe for beginner',
-        'company_stock': 'AMZN',
+        'company_stock': 'PDD',
         'recipient': 'charlie.phairoj@gmail.com',
-        'subject': 'Report for AMZN',
-        'body': 'Please find the report for AMZN',
+        'subject': 'Report for PDD',
+        'body': 'Please find the report for PDD',
         # 'attachment_path': 'report.pdf',
     }
     StockAnalysisCrew().crew().kickoff(inputs=inputs)

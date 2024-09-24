@@ -1,8 +1,8 @@
 financial_analysis:
   description: >
     Conduct a thorough analysis of {company_stock}'s stock financial health and market performance. This includes examining key financial metrics such as
-    P/E ratio, EPS growth, revenue trends, and debt-to-equity ratio. Also, analyze the stock's performance in comparison 
-    to its industry peers and overall market trends.
+    P/E ratio, EPS growth, revenue trends, and debt-to-equity ratio, Sharpe Ratio, and more. Also, analyze the stock's performance in comparison 
+    to its industry peers and overall market trends. 
 
   expected_output: >
     The final report must expand on the summary provided but now 
@@ -64,9 +64,11 @@ html_report_generation:
   description: >
     Create a professional, comprehensive HTML report that consolidates all the analyses and recommendations for {company_stock}. The report should:
     1. Have a clear, visually appealing structure with a table of contents.
-    2. Incorporate all data visualizations and charts.
+    2. Incorporate all data visualizations and charts, which should be interactive or illustrated via SVG
     3. Present information in a logical, easy-to-follow manner.
-    4. Should be completely static and not use any javascript libraries or even javascript at all.
+    4. Include interactive elements if possible but nothing should be hidden or need expanding. 
+    5. All the javascript and css should be inline.
+    6. The styling shold be in the based on bootstrap, or can use bootstrap if everything can in the same output with no compiling.
   expected_output: >
     A polished, well-formatted HTML report that effectively communicates all aspects of the stock analysis.
-    The report should be suitable for both quick overview and in-depth reading.
+    The report should be suitable for both quick overview and in-depth reading and is saved to file.
