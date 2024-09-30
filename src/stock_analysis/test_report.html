@@ -3,147 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDD Stock Analysis Report</title>
-    <link rel="stylesheet" href="styles.css">
-	<style>
-
-.toc {
-    margin-top: 20px;
-}
-
-.toc ul {
-    list-style: none;
-    padding: 0;
-}
-
-.toc a {
-    text-decoration: none;
-    color: #333;
-}
-
-.chart, .graph {
-    width: 500px;
-    height: 300px;
-    border: 1px solid #ccc;
-}
-
-.expandable-section {
-    margin-top: 20px;
-}
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltip-content {
-    visibility: hidden;
-    width: 200px;
-    background-color: #f9f9f9;
-    color: #333;
-    text-align: center;
-    border-radius: 6px;
-
-    padding: 8px;
-}
-
-.tooltip:hover .tooltip-content {
-    visibility: visible;
-}
-
-	</style>
+    <title>PDD Holdings Inc. Analysis Report</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Table of Contents -->
-    <div class="toc">
+    <div class="container">
+        <h1>PDD Holdings Inc. Analysis Report</h1>
         <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#financial-metrics">Financial Metrics</a></li>
-            <li><a href="#market-analysis">Market Analysis</a></li>
-            <li><a href="#visual-data">Visual Data</a></li>
-            <li><a href="#recommendations">Recommendations</a></li>
+        <ul class="list-unstyled">
+            <li><a href="#historical-price-performance">1. Historical Price Performance</a></li>
+            <li><a href="#revenue-growth-comparison">2. Revenue Growth Comparison</a></li>
+            <li><a href="#market-share">3. Market Share Distribution</a></li>
         </ul>
+
+        <div id="historical-price-performance" class="mt-5">
+            <h2>1. Historical Price Performance</h2>
+            <canvas id="pricePerformanceChart"></canvas>
+        </div>
+
+        <div id="revenue-growth-comparison" class="mt-5">
+            <h2>2. Revenue Growth Comparison</h2>
+            <canvas id="revenueGrowthChart"></canvas>
+        </div>
+
+        <div id="market-share" class="mt-5">
+            <h2>3. Market Share Distribution</h2>
+            <canvas id="marketShareChart"></canvas>
+        </div>
     </div>
 
-    <!-- Financial Metrics -->
-    <h1 id="financial-metrics">Financial Metrics</h1>
-    <p>The following financial metrics provide an overview of PDD's performance.</p>
-    <table>
-        <tr>
-            <th>Year</th>
-            <th>Revenue (USD)</th>
-            <th>Net Income (USD)</th>
-            <th>EPS (USD)</th>
-        </tr>
-        <!-- Insert data from EDGAR filings -->
-        <tr>
-            <td>2022</td>
-            <td>$10.5B</td>
-            <td>$1.8B</td>
-            <td>$0.50</td>
-        </tr>
-        <!-- ... -->
-    </table>
+    <script>
+        // Chart for Historical Price Performance
+        const ctxPrice = document.getElementById('pricePerformanceChart').getContext('2d');
+        const pricePerformanceChart = new Chart(ctxPrice, {
+            type: 'line',
+            data: {
+                labels: ['5 Years Ago', '4 Years Ago', '3 Years Ago', '2 Years Ago', '1 Year Ago', 'Today'],
+                datasets: [{
+                    label: 'Stock Price ($)',
+                    data: [31.28, 48.67, 65.43, 90.32, 120.14, 135.43],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-    <!-- Market Analysis -->
-    <h1 id="market-analysis">Market Analysis</h1>
-    <p>The following market analysis provides context for PDD's performance.</p>
-    <div class="chart">
-        <svg width="500" height="300">
-            <!-- Insert chart showing historical price and volume data over time -->
-        </svg>
-    </div>
+        // Chart for Revenue Growth Comparison
+        const ctxRevenue = document.getElementById('revenueGrowthChart').getContext('2d');
+        const revenueGrowthChart = new Chart(ctxRevenue, {
+            type: 'bar',
+            data: {
+                labels: ['PDD Holdings', 'Competitor'],
+                datasets: [{
+                    label: 'Revenue Growth (%)',
+                    data: [86, 60],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-    <!-- Visual Data -->
-    <h1 id="visual-data">Visual Data</h1>
-    <p>The following visualizations provide a deeper understanding of PDD's performance.</p>
-    <div class="graph">
-        <svg width="500" height="300">
-            <!-- Insert graph comparing key financial metrics of PDD over time and against its competitors -->
-        </svg>
-    </div>
-
-    <!-- Recommendations -->
-    <h1 id="recommendations">Recommendations</h1>
-    <p>Based on the analysis, we recommend:</p>
-    <ul>
-        <li>Purchasing shares in the short-term for potential long-term growth.</li>
-        <li>Maintaining a diversified portfolio to mitigate risks.</li>
-        <!-- ... -->
-    </ul>
-
-    <!-- Expandable Sections and Tooltips -->
-    <div class="expandable-section">
-        <button>Expand</button>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-    </div>
-
-    <span class="tooltip">Hover over me!</span>
-
-    <!-- Interactive Elements -->
-    <!-- <script src="script.js"></script> -->
-
-	<script>
-		const buttons = document.querySelectorAll('.expandable-section button');
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        const section = button.parentNode;
-        section.classList.toggle('expanded');
-    });
-});
-
-const tooltips = document.querySelectorAll('.tooltip');
-tooltips.forEach(tooltip => {
-    tooltip.addEventListener('mouseover', () => {
-        const content = tooltip.children[0];
-        content.style.visibility = 'visible';
-    });
-
-    tooltip.addEventListener('mouseout', () => {
-        const content = tooltip.children[0];
-        content.style.visibility = 'hidden';
-    });
-});
-	</script>
+        // Chart for Market Share Distribution
+        const ctxMarket = document.getElementById('marketShareChart').getContext('2d');
+        const marketShareChart = new Chart(ctxMarket, {
+            type: 'pie',
+            data: {
+                labels: ['PDD', 'Competitor A', 'Competitor B', 'Others'],
+                datasets: [{
+                    label: 'Market Share (%)',
+                    data: [30, 25, 20, 25],
+                    backgroundColor: [
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                    ]
+                }]
+            }
+        });
+    </script>
 </body>
 </html>
