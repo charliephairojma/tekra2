@@ -45,7 +45,7 @@ class StockAnalysisCrew:
                 # SEC10QTool("AMZN"),
                 # SEC10KTool("AMZN"),
             ],
-            llm=ollama_llama3_1
+            llm=chat_gpt_4o_mini
         )
     
     @task
@@ -69,7 +69,7 @@ class StockAnalysisCrew:
                 # SEC10QTool("AMZN"),
                 # SEC10KTool("AMZN"),
             ],
-            llm=ollama_llama3_1
+            llm=chat_gpt_4o_mini
         )
     
     @task
@@ -93,7 +93,7 @@ class StockAnalysisCrew:
                 # SEC10QTool(),
                 # SEC10KTool(),
             ],
-            llm=ollama_llama3_1
+            llm=chat_gpt_4o_mini
         )
     
     @task
@@ -121,7 +121,7 @@ class StockAnalysisCrew:
                 WebsiteSearchTool(),
                 CalculatorTool(),
             ],
-            llm=ollama_llama3_1
+            llm=chat_gpt_4o_mini
         )
 
     @task
@@ -161,7 +161,8 @@ class StockAnalysisCrew:
                 # PDFTool(),
                 # FileWriterTool(overwrite=True, directory="reports"),
             # ],
-            llm=ollama_llama3_1
+            llm=chat_gpt_4o_mini
+            
         )
 
     @task
@@ -169,7 +170,8 @@ class StockAnalysisCrew:
         return Task(
             config=self.tasks_config['html_report_generation'],
             agent=self.web_developer_agent(),
-            output_file="report.html"
+            output_file="report.html", 
+			
         )
     
     @crew
@@ -182,6 +184,7 @@ class StockAnalysisCrew:
             verbose=True,
             planning=True,
             memory=True,
+            manager_agent=self.web_developer_agent(),
             output_log_file="log.txt",
             planning_llm=chat_gpt_4o_mini
         )

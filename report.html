@@ -3,150 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDD Financial and Market Data Report</title>
+    <title>PDD Holdings Inc. Analysis Report</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Inline CSS styles based on Bootstrap */
         body {
             font-family: Arial, sans-serif;
         }
-        
         .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            background-color: #f7f7f7;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
         }
-        
-        .header {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 15px;
+        h1, h2, h3 {
             text-align: center;
         }
-        
-        .table-of-contents {
-            margin-top: 20px;
-        }
-        
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-        }
-        
-        tr:nth-child(even) { background-color: #f2f2f2; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <div class="container">
+        <h1>PDD Holdings Inc. Analysis Report</h1>
+        <h2>Table of Contents</h2>
+        <ul class="list-unstyled">
+            <li><a href="#historical-price-performance">1. Historical Price Performance</a></li>
+            <li><a href="#revenue-growth-comparison">2. Revenue Growth Comparison</a></li>
+            <li><a href="#market-share">3. Market Share Distribution</a></li>
+        </ul>
 
-<div class="container">
-    <div class="header">PDD Financial and Market Data Report</div>
-    
-    <table class="table-of-contents">
-        <tr>
-            <th>Section</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td><a href="#historical-price-volume-data-chart">1. Historical Price & Volume Data Chart</a></td>
-            <td>Plots PDD's stock price over time alongside traded volume.</td>
-        </tr>
-        <tr>
-            <td><a href="#comparative-financial-metrics-graph">2. Comparative Financial Metrics Graph</a></td>
-            <td>Compares PDD's revenue, net income, and EPS with key competitors.</td>
-        </tr>
-        <tr>
-            <td><a href="#market-share-representation">3. Market Share Representation</a></td>
-            <td>Represents PDD's percentage of the total market share in its industry.</td>
-        </tr>
-        <tr>
-            <td><a href="#revenue-breakdown-visualization">4. Revenue Breakdown Visualization</a></td>
-            <td>Illustrates various revenue sources for PDD, allowing for an understanding of how different sectors contribute to total revenue.</td>
-        </tr>
-        <tr>
-            <td><a href="#risk-vs-return-assessment-table">5. Risk vs. Return Assessment Table</a></td>
-            <td>Evaluates the risk and expected return for PDD in comparison to its competitors.</td>
-        </tr>
-        <tr>
-            <td><a href="#investment-recommendation-slide">6. Investment Recommendation Slide</a></td>
-            <td>Based on the quantitative data and qualitative insights, concludes with a recommendation on whether to buy, hold, or sell shares of PDD.</td>
-        </tr>
-    </table>
-    
-    <div id="historical-price-volume-data-chart" class="content-section">
-        <h2>1. Historical Price & Volume Data Chart</h2>
-        <!-- SVG Line Chart -->
-        <svg width="500" height="300">
-            <line x1="10" y1="20" x2="40" y2="100" style="stroke:rgb(0,0,0);stroke-width:2"/>
-            <text x="45" y="50">2020-01-01</text>
-            <text x="45" y="120">2020-12-31</text>
-        </svg>
-    </div>
-    
-    <div id="comparative-financial-metrics-graph" class="content-section">
-        <h2>2. Comparative Financial Metrics Graph</h2>
-        <!-- SVG Bar Chart -->
-        <svg width="500" height="300">
-            <rect x="10" y="20" width="50" height="100" style="fill:rgb(0,255,0);"/>
-            <rect x="70" y="120" width="50" height="80" style="fill:rgb(0,0,255);"/>
-            <text x="15" y="40">PDD Revenue</text>
-            <text x="75" y="140">JD.com Revenue</text>
-        </svg>
-    </div>
-    
-    <div id="market-share-representation" class="content-section">
-        <h2>3. Market Share Representation</h2>
-        <!-- SVG Pie Chart -->
-        <svg width="200" height="200">
-            <circle cx="100" cy="50" r="40" style="fill:rgb(255,0,0);"/>
-            <text x="110" y="70">PDD Market Share</text>
-        </svg>
-    </div>
-    
-    <div id="revenue-breakdown-visualization" class="content-section">
-        <h2>4. Revenue Breakdown Visualization</h2>
-        <!-- SVG Stacked Bar Chart -->
-        <svg width="500" height="300">
-            <rect x="10" y="20" width="50" height="80" style="fill:rgb(0,255,0);"/>
-            <rect x="70" y="40" width="50" height="120" style="fill:rgb(0,0,255);"/>
-            <text x="15" y="60">Revenue Source 1</text>
-            <text x="75" y="160">Revenue Source 2</text>
-        </svg>
-    </div>
-    
-    <div id="risk-vs-return-assessment-table" class="content-section">
-        <h2>5. Risk vs. Return Assessment Table</h2>
-        <table>
-            <tr>
-                <th>Risk</th>
-                <th>Expected Return</th>
-            </tr>
-            <tr>
-                <td>PDD</td>
-                <td>10%</td>
-            </tr>
-            <tr>
-                <td>JD.com</td>
-                <td>15%</td>
-            </tr>
-        </table>
-    </div>
-    
-    <div id="investment-recommendation-slide" class="content-section">
-        <h2>6. Investment Recommendation Slide</h2>
-        <!-- SVG Comment Box -->
-        <svg width="200" height="50">
-            <rect x="10" y="20" width="180" height="40" style="fill:rgb(255,0,0);"/>
-            <text x="15" y="45">Recommendation:</text>
-        </svg>
-    </div>
-</div>
+        <div id="historical-price-performance" class="mt-5">
+            <h2>1. Historical Price Performance</h2>
+            <canvas id="pricePerformanceChart"></canvas>
+        </div>
 
+        <div id="revenue-growth-comparison" class="mt-5">
+            <h2>2. Revenue Growth Comparison</h2>
+            <canvas id="revenueGrowthChart"></canvas>
+        </div>
+
+        <div id="market-share" class="mt-5">
+            <h2>3. Market Share Distribution</h2>
+            <canvas id="marketShareChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Chart for Historical Price Performance
+        const ctxPrice = document.getElementById('pricePerformanceChart').getContext('2d');
+        const pricePerformanceChart = new Chart(ctxPrice, {
+            type: 'line',
+            data: {
+                labels: ['5 Years Ago', '4 Years Ago', '3 Years Ago', '2 Years Ago', '1 Year Ago', 'Today'],
+                datasets: [{
+                    label: 'Stock Price ($)',
+                    data: [31.28, 48.67, 65.43, 90.32, 120.14, 135.43],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Chart for Revenue Growth Comparison
+        const ctxRevenue = document.getElementById('revenueGrowthChart').getContext('2d');
+        const revenueGrowthChart = new Chart(ctxRevenue, {
+            type: 'bar',
+            data: {
+                labels: ['PDD Holdings', 'Competitor'],
+                datasets: [{
+                    label: 'Revenue Growth (%)',
+                    data: [86, 60],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Chart for Market Share Distribution
+        const ctxMarket = document.getElementById('marketShareChart').getContext('2d');
+        const marketShareChart = new Chart(ctxMarket, {
+            type: 'pie',
+            data: {
+                labels: ['PDD', 'Competitor A', 'Competitor B', 'Others'],
+                datasets: [{
+                    label: 'Market Share (%)',
+                    data: [30, 25, 20, 25],
+                    backgroundColor: [
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                    ]
+                }]
+            }
+        });
+    </script>
 </body>
 </html>

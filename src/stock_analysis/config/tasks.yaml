@@ -66,7 +66,7 @@ html_report_generation:
     1. Have a clear, visually appealing structure with a table of contents.
     2. Incorporate all data visualizations and charts, which should be interactive or illustrated via SVG
     3. Present information in a logical, easy-to-follow manner.
-    4. Include interactive elements if possible but nothing should be hidden or need expanding. 
+    4. Include interactive elements if possible but nothing should be hidden or need expanding. And charts should be implemented with chartjs, which can be added via a cdn.
     5. All the javascript and css should be inline.
     6. The styling shold be in the based on bootstrap, or can use bootstrap if everything can in the same output with no compiling.
   expected_output: >

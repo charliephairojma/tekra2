@@ -10,7 +10,7 @@ dotenv.load_dotenv()
 def run():
     inputs = {
         'query': 'What is the best running shoe for beginner',
-        'company_stock': 'PDD',
+        'company_stock': 'PDD Pindoudou',
         'recipient': 'charlie.phairoj@gmail.com',
         'subject': 'Report for PDD',
         'body': 'Please find the report for PDD',
