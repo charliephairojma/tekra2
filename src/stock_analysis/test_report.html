@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDD Holdings Inc. Analysis Report</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>PDD Holdings Inc. Analysis Report</h1>
+        <h2>Table of Contents</h2>
+        <ul class="list-unstyled">
+            <li><a href="#historical-price-performance">1. Historical Price Performance</a></li>
+            <li><a href="#revenue-growth-comparison">2. Revenue Growth Comparison</a></li>
+            <li><a href="#market-share">3. Market Share Distribution</a></li>
+        </ul>
+
+        <div id="historical-price-performance" class="mt-5">
+            <h2>1. Historical Price Performance</h2>
+            <canvas id="pricePerformanceChart"></canvas>
+        </div>
+
+        <div id="revenue-growth-comparison" class="mt-5">
+            <h2>2. Revenue Growth Comparison</h2>
+            <canvas id="revenueGrowthChart"></canvas>
+        </div>
+
+        <div id="market-share" class="mt-5">
+            <h2>3. Market Share Distribution</h2>
+            <canvas id="marketShareChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Chart for Historical Price Performance
+        const ctxPrice = document.getElementById('pricePerformanceChart').getContext('2d');
+        const pricePerformanceChart = new Chart(ctxPrice, {
+            type: 'line',
+            data: {
+                labels: ['5 Years Ago', '4 Years Ago', '3 Years Ago', '2 Years Ago', '1 Year Ago', 'Today'],
+                datasets: [{
+                    label: 'Stock Price ($)',
+                    data: [31.28, 48.67, 65.43, 90.32, 120.14, 135.43],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Chart for Revenue Growth Comparison
+        const ctxRevenue = document.getElementById('revenueGrowthChart').getContext('2d');
+        const revenueGrowthChart = new Chart(ctxRevenue, {
+            type: 'bar',
+            data: {
+                labels: ['PDD Holdings', 'Competitor'],
+                datasets: [{
+                    label: 'Revenue Growth (%)',
+                    data: [86, 60],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Chart for Market Share Distribution
+        const ctxMarket = document.getElementById('marketShareChart').getContext('2d');
+        const marketShareChart = new Chart(ctxMarket, {
+            type: 'pie',
+            data: {
+                labels: ['PDD', 'Competitor A', 'Competitor B', 'Others'],
+                datasets: [{
+                    label: 'Market Share (%)',
+                    data: [30, 25, 20, 25],
+                    backgroundColor: [
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                    ]
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

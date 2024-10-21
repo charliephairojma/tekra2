@@ -12,83 +12,82 @@ from crewai_tools import (
 	ScrapeWebsiteTool
 )
 
-ollama_llama3_1 = Ollama(model="ollama/llama3.1")
+ollama_llama3_1 = Ollama(model="llama3.1")
 
 @CrewBase
 class StockAnalysisCrew:
-	agents_config = 'config/agents.yaml'
-	tasks_config = 'config/tasks.yaml'
+	agents_config = 'config/agents2.yaml'
+	tasks_config = 'config/tasks2.yaml'
 	
 	@agent
 	def investment_manager_agent(self) -> Agent:
-		tools = [
-			CalculatorTool(),
-			# VectorDBTool()
-		]
 		return Agent(
 			config=self.agents_config['investment_manager'],
 			llm=ollama_llama3_1,
 			max_iter=3,
 			max_rpm=10,
-			tools=tools
+			tools=[
+				ScrapeWebsiteTool(),
+				WebsiteSearchTool(),
+				CalculatorTool(),
+				SEC10QTool(),
+				SEC10KTool(),
+				# VectorDBTool()
+			]
 			)
 	
 	@agent
 	def financial_analyst_agent(self) -> Agent:
-		tools = [
-			ScrapeWebsiteTool(),
-			WebsiteSearchTool(),
-			CalculatorTool(),
-			SEC10QTool(),
-			SEC10KTool(),
-			# VectorDBTool()
-		]
 		return Agent(
 			config=self.agents_config['financial_analyst'],
 			llm=ollama_llama3_1,
 			max_iter=3,
 			max_rpm=10,
-			tools=tools
+			tools=[
+				ScrapeWebsiteTool(),
+				WebsiteSearchTool(),
+				CalculatorTool(),
+				SEC10QTool(),
+				SEC10KTool(),
+				# VectorDBTool()
+			]
 			)
 	
 	@agent
 	def research_analyst_agent(self) -> Agent:
-		tools = [
-			ScrapeWebsiteTool(),
-			WebsiteSearchTool(),
-			# VectorDBTool()
-		]
 		return Agent(
 			config=self.agents_config['market_research_analyst'],
 			llm=ollama_llama3_1,
 			max_iter=3,
 			max_rpm=10,
-			tools=tools
+			tools=[
+				ScrapeWebsiteTool(),
+				WebsiteSearchTool(),
+				# VectorDBTool()
+			]
 			)
 	
 	@agent
 	def financial_visualizer_agent(self) -> Agent:
-		tools = [
-			CalculatorTool()
-		]
 		return Agent(
 			config=self.agents_config['data_visualization_specialist'],
 			llm=ollama_llama3_1,
 			max_iter=3,
-			tools=tools
+			tools=[
+				CalculatorTool()
+			]
 			)
 
 	@agent
 	def web_developer_agent(self) -> Agent:
-		tools = [
-			PDFTool(),
-			EmailTool()
-		]
 		return Agent(
 			config=self.agents_config['report_writer'],
 			llm=ollama_llama3_1,
 			max_iter=3,
-			tools=tools
+			tools=[
+				PDFTool(),
+				EmailTool()
+			]
 			)
 
 	@task

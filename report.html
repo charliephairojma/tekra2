@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDD Pindoudou Financial Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .table-of-contents {
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+        .section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        canvas {
+            max-width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>PDD Pindoudou Financial Report</h1>
+</header>
+
+<div class="table-of-contents">
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#stock-price">Current Stock Price</a></li>
+        <li><a href="#market-cap">Market Capitalization</a></li>
+        <li><a href="#pe-ratio">P/E Ratio</a></li>
+        <li><a href="#eps">EPS (TTM)</a></li>
+        <li><a href="#peg-ratio">PEG Ratio</a></li>
+        <li><a href="#performance">Performance Year-to-Date</a></li>
+        <li><a href="#52-week-range">52 Week Range</a></li>
+        <li><a href="#analyst-rating">Analyst Consensus Rating</a></li>
+        <li><a href="#target-price">Average Target Price</a></li>
+        <li><a href="#potential-upside">Potential Upside</a></li>
+    </ul>
+</div>
+
+<div class="section" id="stock-price">
+    <h2>Current Stock Price</h2>
+    <p>The current stock price for PDD Holdings Inc. is <b>$124.62</b>.</p>
+    <canvas id="stockPriceChart"></canvas>
+</div>
+
+<div class="section" id="market-cap">
+    <h2>Market Capitalization</h2>
+    <p>The market capitalization of the company is <b>$173.07 billion</b>.</p>
+    <canvas id="marketCapChart"></canvas>
+</div>
+
+<div class="section" id="pe-ratio">
+    <h2>P/E Ratio</h2>
+    <p>PDD Holdings Inc. has a P/E Ratio of <b>13.44</b>.</p>
+    <canvas id="peRatioChart"></canvas>
+</div>
+
+<div class="section" id="eps">
+    <h2>EPS (TTM)</h2>
+    <p>The Earnings Per Share (TTM) is <b>9.27</b>.</p>
+    <canvas id="epsChart"></canvas>
+</div>
+
+<div class="section" id="peg-ratio">
+    <h2>PEG Ratio</h2>
+    <p>The PEG Ratio is <b>0.65</b>.</p>
+    <canvas id="pegRatioChart"></canvas>
+</div>
+
+<div class="section" id="performance">
+    <h2>Performance Year-to-Date</h2>
+    <p>The performance year-to-date is <b>-14.82%</b>.</p>
+    <canvas id="performanceChart"></canvas>
+</div>
+
+<div class="section" id="52-week-range">
+    <h2>52 Week Range</h2>
+    <p>The stock has a 52 Week Range of <b>$88.01 - $164.69</b>.</p>
+    <canvas id="weekRangeChart"></canvas>
+</div>
+
+<div class="section" id="analyst-rating">
+    <h2>Analyst Consensus Rating</h2>
+    <p>The analyst consensus rating is <b>1.32</b> (indicating a Buy).</p>
+    <canvas id="analystRatingChart"></canvas>
+</div>
+
+<div class="section" id="target-price">
+    <h2>Average Target Price</h2>
+    <p>The average target price is <b>$170.00</b>.</p>
+    <canvas id="targetPriceChart"></canvas>
+</div>
+
+<div class="section" id="potential-upside">
+    <h2>Potential Upside</h2>
+    <p>The potential upside from the current price to the target price is <b>$45.38</b>.</p>
+    <canvas id="potentialUpsideChart"></canvas>
+</div>
+
+<script>
+    const ctxStockPrice = document.getElementById('stockPriceChart').getContext('2d');
+    new Chart(ctxStockPrice, {
+        type: 'bar',
+        data: {
+            labels: ['Current Price'],
+            datasets: [{
+                label: '$124.62',
+                data: [124.62],
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const ctxMarketCap = document.getElementById('marketCapChart').getContext('2d');
+    new Chart(ctxMarketCap, {
+        type: 'doughnut',
+        data: {
+            labels: ['Market Cap'],
+            datasets: [{
+                label: 'Market Cap',
+                data: [173.07],
+                backgroundColor: ['rgba(54, 162, 235, 0.6)'],
+            }]
+        }
+    });
+
+    const ctxPERatio = document.getElementById('peRatioChart').getContext('2d');
+    new Chart(ctxPERatio, {
+        type: 'bar',
+        data: {
+            labels: ['P/E Ratio'],
+            datasets: [{
+                label: 'P/E Ratio',
+                data: [13.44],
+                backgroundColor: 'rgba(255, 206, 86, 0.6)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const ctxEPS = document.getElementById('epsChart').getContext('2d');
+    new Chart(ctxEPS, {
+        type: 'line',
+        data: {
+            labels: ['EPS'],
+            datasets: [{
+                label: 'EPS (TTM)',
+                data: [9.27],
+                fill: false,
+                borderColor: 'rgba(255, 99, 132, 1)',
+            }]
+        }
+    });
+
+    const ctxPEGRatio = document.getElementById('pegRatioChart').getContext('2d');
+    new Chart(ctxPEGRatio, {
+        type: 'bar',
+        data: {
+            labels: ['PEG Ratio'],
+            datasets: [{
+                label: 'PEG Ratio',
+                data: [0.65],
+                backgroundColor: 'rgba(153, 102, 255, 0.6)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const ctxPerformance = document.getElementById('performanceChart').getContext('2d');
+    new Chart(ctxPerformance, {
+        type: 'bar',
+        data: {
+            labels: ['Performance YTD'],
+            datasets: [{
+                label: '% Change',
+                data: [-14.82],
+                backgroundColor: 'rgba(255, 159, 64, 0.6)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const ctxWeekRange = document.getElementById('weekRangeChart').getContext('2d');
+    new Chart(ctxWeekRange, {
+        type: 'bar',
+        data: {
+            labels: ['52 Week Range'],
+            datasets: [{
+                label: 'Low: $88.01 - High: $164.69',
+                data: [88.01, 164.69],
+                backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(0, 123, 255, 0.6)'],
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctxAnalystRating = document.getElementById('analystRatingChart').getContext('2d');
+    new Chart(ctxAnalystRating, {
+        type: 'doughnut',
+        data: {
+            labels: ['Analyst Consensus Rating'],
+            datasets: [{
+                label: 'Consensus',
+                data: [1.32],
+                backgroundColor: ['rgba(255, 99, 132, 0.6)'],
+            }]
+        }
+    });
+
+    const ctxTargetPrice = document.getElementById('targetPriceChart').getContext('2d');
+    new Chart(ctxTargetPrice, {
+        type: 'bar',
+        data: {
+            labels: ['Average Target Price'],
+            datasets: [{
+                label: 'Target Price',
+                data: [170.00],
+                backgroundColor: 'rgba(153, 102, 255, 0.6)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const ctxPotentialUpside = document.getElementById('potentialUpsideChart').getContext('2d');
+    new Chart(ctxPotentialUpside, {
+        type: 'bar',
+        data: {
+            labels: ['Potential Upside'],
+            datasets: [{
+                label: 'Potential Upside',
+                data: [45.38],
+                backgroundColor: 'rgba(255, 206, 86, 0.6)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+</script>
+
+</body>
+</html>
+
