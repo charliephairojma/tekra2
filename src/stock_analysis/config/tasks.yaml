@@ -1,14 +1,15 @@
 financial_analysis:
   description: >
     Conduct a thorough analysis of {company_stock}'s stock financial health and market performance. This includes examining key financial metrics such as
-    P/E ratio, EPS growth, revenue trends, and debt-to-equity ratio, Sharpe Ratio, and more. Also, analyze the stock's performance in comparison 
-    to its industry peers and overall market trends. 
+    Expected Return, Sharpe Ratio, and more. Also, analyze the stock's performance in comparison 
+    to its industry peers and overall market trends. Also listed the "Expected Return" from all sources, and reference the sources.
 
   expected_output: >
     The final report must expand on the summary provided but now 
     including a clear assessment of the stock's financial standing, its strengths and weaknesses, 
     and how it fares against its competitors in the current market scenario.
     Make sure to use the most recent data possible.
+    Also make sure to include the "Expected Return" from all sources, and reference the sources.
 
 research:
   description: >
