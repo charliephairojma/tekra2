@@ -2,6 +2,8 @@ from typing import List
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from langchain.llms import Ollama, OpenAI
+from langchain_openai import ChatOpenAI
+
 from stock_analysis.tools.calculator_tool import CalculatorTool
 from stock_analysis.tools.sec_tools import SEC10KTool, SEC10QTool
 from stock_analysis.tools.pdf_tool import PDFTool
@@ -14,6 +16,8 @@ from crewai_tools import (
 
 ollama_llama3_1 = Ollama(model="llama3.1")
 
+chat_gpt_4o_mini = ChatOpenAI(model="gpt-4o-mini")
+
 @CrewBase
 class StockAnalysisCrew:
 	agents_config = 'config/agents2.yaml'
@@ -23,7 +27,7 @@ class StockAnalysisCrew:
 	def investment_manager_agent(self) -> Agent:
 		return Agent(
 			config=self.agents_config['investment_manager'],
-			llm=ollama_llama3_1,
+			llm=chat_gpt_4o_mini,
 			max_iter=3,
 			max_rpm=10,
 			tools=[
@@ -40,7 +44,7 @@ class StockAnalysisCrew:
 	def financial_analyst_agent(self) -> Agent:
 		return Agent(
 			config=self.agents_config['financial_analyst'],
-			llm=ollama_llama3_1,
+			llm=chat_gpt_4o_mini,
 			max_iter=3,
 			max_rpm=10,
 			tools=[
@@ -57,7 +61,7 @@ class StockAnalysisCrew:
 	def research_analyst_agent(self) -> Agent:
 		return Agent(
 			config=self.agents_config['market_research_analyst'],
-			llm=ollama_llama3_1,
+			llm=chat_gpt_4o_mini,
 			max_iter=3,
 			max_rpm=10,
 			tools=[
@@ -71,7 +75,7 @@ class StockAnalysisCrew:
 	def financial_visualizer_agent(self) -> Agent:
 		return Agent(
 			config=self.agents_config['data_visualization_specialist'],
-			llm=ollama_llama3_1,
+			llm=chat_gpt_4o_mini,
 			max_iter=3,
 			tools=[
 				CalculatorTool()
@@ -82,7 +86,7 @@ class StockAnalysisCrew:
 	def web_developer_agent(self) -> Agent:
 		return Agent(
 			config=self.agents_config['report_writer'],
-			llm=ollama_llama3_1,
+			llm=chat_gpt_4o_mini,
 			max_iter=3,
 			tools=[
 				PDFTool(),
